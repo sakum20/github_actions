@@ -12,8 +12,19 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Print message
         run: echo "Learning GitHub Actions in ${{ github.event.inputs.environment }}!"
+
+      - name: env examples
+        env:
+          GITHUB_ENV: "Demo environment" 
+        run: |
+          echo " GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+
+      - name: with examples 
+        uses: actions/setup-python@v4
+        with: 
+          python-version: '3.x'
