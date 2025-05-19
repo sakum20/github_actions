@@ -32,3 +32,8 @@ jobs:
       - name: print message 
         run: |
            echo "Input received: ${{ github.event.ref }}"
+
+      - name: check versions
+        run: |
+          python --version
+
