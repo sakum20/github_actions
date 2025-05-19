@@ -22,9 +22,12 @@ jobs:
         env:
           GITHUB_ENV: "Demo environment" 
         run: |
-          echo " GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+          echo " GITHUB_WORKFLOW: {{ $GITHUB_WORKFLOW }}"
 
       - name: with examples 
         uses: actions/setup-python@v4
         with: 
           python-version: '3.x'
+
+      - name: print message 
+        run: echo "Input received: ${{ github.event.inputs.environment }}"
