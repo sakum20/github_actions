@@ -1,0 +1,19 @@
+name: demo workflow 
+
+on: 
+  workflow_dispatch:
+    inputs:
+      enviromment:
+        description: "Provide environment"
+        required: true 
+        default: "dev"
+ 
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print message
+        run: echo "Learning GitHub Actions in ${{ github.event.inputs.environment }}!"
